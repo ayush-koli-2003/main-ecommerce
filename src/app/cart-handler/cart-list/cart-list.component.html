@@ -1,0 +1,22 @@
+<div id="product-display">
+    <ul id="product-area">
+        <h1 id="totalPrice">Total: {{total}}</h1>
+        <ng-container *ngFor="let p of cartList">
+            <li id="product">
+                <div id="display-product">
+                    <div id="image">
+                        <img src="{{p.image}}" alt="Image">
+                    </div>
+                    <div id="product-details">
+                        <h1>{{p.name}}</h1>
+                        <p>Category: {{p.category}}</p>
+                        <p>Rating: {{p.rating}}</p>
+                        <p>Price:${{p.price}}</p>
+                        <button id="add-to-cart" (click)="removeFromCart(p.id)">Remove</button>
+                    </div>
+                </div>
+                
+            </li>
+        </ng-container>
+    </ul>
+</div>

@@ -1,0 +1,40 @@
+<div style=" margin-left: 400px; margin-right: 400px;">
+    <form [formGroup]="registerForm" (ngSubmit)="checkFormData()">
+        <div class="container">
+          <h1>User Registration</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr>
+        
+          
+          <label for="email"><b>Username</b></label>
+          <div *ngIf="(registerForm.controls['name'].errors !==null ? registerForm.controls['name'].errors['required'] !== null : false) && registerForm.controls['name'].pristine">Username is required</div>
+          <div *ngIf="(registerForm.controls['name'].errors !==null ? registerForm.controls['name'].errors['pattern'] !== null : false) && registerForm.controls['name'].dirty">Cant accept whitespaces</div>
+          <input type="text" placeholder="Enter Username" name="email" formControlName="name">
+
+          
+          <label for="email"><b>Email</b></label>
+          <div *ngIf="(registerForm.controls['email'].errors !==null ? registerForm.controls['email'].errors['required'] !== null : false) && registerForm.controls['email'].pristine">Email is required</div>
+          <div *ngIf="(registerForm.controls['email'].errors !==null ? registerForm.controls['email'].errors['email'] !== null : false) && registerForm.controls['email'].dirty">Enter valid email</div>
+          <input type="text" placeholder="Enter Email" name="email" formControlName="email">
+          
+          
+          <label for="email"><b>Age</b></label>
+          <div *ngIf="(registerForm.controls['age'].errors !==null ? registerForm.controls['age'].errors['required'] !== null : false) && registerForm.controls['age'].pristine">Age is required</div>
+          <div *ngIf="(registerForm.controls['age'].errors !==null ? registerForm.controls['age'].errors['pattern'] !== null : false) && registerForm.controls['age'].dirty">Enter valid number</div>
+          <input type="text" placeholder="Enter Age" name="email" formControlName="age">
+      
+          
+          <label for="psw"><b>Password</b></label>
+          <div *ngIf="(registerForm.controls['psw'].errors !==null ? registerForm.controls['psw'].errors['required'] !== null : false) && registerForm.controls['psw'].pristine">Password is required</div>
+          <div *ngIf="(registerForm.controls['psw'].errors !==null ? registerForm.controls['psw'].errors['pattern'] !== null : false) && registerForm.controls['psw'].dirty">Cant accept whitespaces</div>
+          <div *ngIf="(registerForm.controls['psw'].errors !==null ? registerForm.controls['psw'].errors['minLength'] !== null : false) && registerForm.controls['psw'].dirty">Password length should be atleast 6</div>
+          <input type="password" placeholder="Enter Password" name="psw" formControlName="psw">
+          <hr>
+          <button type="submit" class="registerbtn">Register</button>
+        </div>
+      
+        <div class="container signin">
+          <p>Already have an account? <a routerLink="../login">Sign in</a>.</p>
+        </div>
+      </form>
+</div>

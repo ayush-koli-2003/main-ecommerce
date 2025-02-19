@@ -1,0 +1,22 @@
+<div id="product-display">
+    <ul id="product-area">
+        <ng-container *ngFor="let p of productList">
+            <li id="product">
+                <div id="display-product">
+                    <div id="image">
+                        <img src="{{p.image}}" alt="Image">
+                    </div>
+                    <div id="product-details">
+                        <h1>{{p.name | uppercase}}</h1>
+                        <p>Category: {{p.category}}</p>
+                        <p>Rating: {{p.rating}}</p>
+                        <p>Price:${{p.price}}</p>
+                        <button id="add-to-cart" (click)="addCart(p.id)">Add to Cart</button>
+                        <button *ngIf="currUser.role === 'admin'" style="margin-left: 5px;" id="add-to-cart" (click)="removeFromList(p.id)">Remove</button>
+                    </div>
+                </div>
+                
+            </li>
+        </ng-container>
+    </ul>
+</div>

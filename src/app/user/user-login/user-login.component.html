@@ -1,0 +1,22 @@
+<div style=" margin-left: 400px; margin-right: 400px;">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+        <div class="container">
+          <h1>User Login</h1>
+          <hr>
+      
+          <label for="email"><b>Email</b></label>
+          <div *ngIf="(loginForm.controls['email'].errors !==null ? loginForm.controls['email'].errors['required'] !== null : false) && loginForm.controls['email'].pristine">Email is required</div>
+          <div *ngIf="(loginForm.controls['email'].errors !==null ? loginForm.controls['email'].errors['email'] !== null : false) && loginForm.controls['email'].dirty">Enter valid email</div>
+          <input type="text" placeholder="Enter Email" name="email" formControlName="email">
+      
+          <label for="psw"><b>Password</b></label>
+          <div *ngIf="(loginForm.controls['psw'].errors !==null ? loginForm.controls['psw'].errors['required'] !== null : false) && loginForm.controls['psw'].pristine">Password is required</div>
+          <div *ngIf="(loginForm.controls['psw'].errors !==null ? loginForm.controls['psw'].errors['pattern'] !== null : false) && loginForm.controls['psw'].dirty">Cant accept whitespaces</div>
+          <div *ngIf="(loginForm.controls['psw'].errors !==null ? loginForm.controls['psw'].errors['minLength'] !== null : false) && loginForm.controls['psw'].dirty">Password length should be atleast 6</div>
+          <input type="password" placeholder="Enter Password" name="psw" formControlName="psw">
+      
+          
+          <button type="submit" class="registerbtn">Sign In</button>
+        </div>
+      </form>
+</div>
