@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
     ]
 
     this.loggedOutOptions=[
-      {label:'Registration',routerLink:'/user'},
+      {label:'Login',routerLink:'/user'},
       {label:'Profile',routerLink:'/user',visible:false}
     ]
   }
