@@ -44,7 +44,7 @@ export class UserLoginComponent {
     if(this.loginForm.valid){
       if(this.userAuth.authenticateUser({email:this.loginForm.value.email,password:this.loginForm.value.psw})){
         this.router.navigate(['/home'])
-        // console.log("Worked");
+        console.log("Worked");
         
       }
     }

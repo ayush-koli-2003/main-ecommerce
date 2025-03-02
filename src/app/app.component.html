@@ -1,6 +1,6 @@
 
 <header>
-  <ul id="link-header">
+  <!-- <ul id="link-header">
       <li class="links" style="float: left"><a routerLink="/home" [queryParams]="{criteria:undefined}">SideKart</a></li>
       <ng-container *ngIf="currUser.isLogged===false; else logoutRef"><li class="links"><a id="register" routerLink="user">Registration</a></li></ng-container>
       <ng-template #logoutRef>
@@ -11,16 +11,40 @@
       <ng-container *ngIf="currUser.role==='admin'"><li class="links"><a routerLink="newProduct">Add Product</a></li></ng-container>
       <li class="links"><div id="dropdown">
           <label for="Sort by"></label>
-            <select #sortRef id="sortBy" (change)="takeSort(sortRef.value)"> <!-- onchange="takeSort(value)" -->
+            <select #sortRef id="sortBy" (change)="takeSort(sortRef.value)"> onchange="takeSort(value)"
               <option value="default">select</option>
               <option value="price">Price</option>
-              <!-- <option value="category">Category</option> -->
+              <option value="category">Category</option>
               <option value="rating">Rating</option>
           </select>
       </div>
       </li>
       <li class="links"><input #searchRef type="text" placeholder="enter here" (keyup)="takeInput(searchRef.value)"></li>
-  </ul>
+      <li class="links"><p-autocomplete [(ngModel)]="searchInput"  [suggestions]="productSuggestions" (completeMethod)="search($event)" /></li>
+  </ul> -->
+
+  <div class="card">
+    <p-menubar [model]="menuitems">
+
+      <ng-template #start>
+        <p-button [hidden]="currUser.role!=='admin'" icon="pi pi-plus"severity="info" label="Add Product" routerLink="/newProduct"></p-button>
+      </ng-template>
+      
+
+      <ng-template #end>
+        <div class="flex items-center gap-2">
+          <p-select [options]="sortoptions" [(ngModel)]="selectedsort" (onChange)="takeSort(selectedsort)" optionLabel="name" placeholder="Select sort" class="w-full md:w-56" />
+          
+          <p-autocomplete [(ngModel)]="searchInput" (ngModelChange)="takeInput()" [suggestions]="productSuggestions" (completeMethod)="search($event)" />
+          <!-- <span class=""></span> -->
+          <p-button icon="pi pi-cart-plus"severity="info" label="Cart" routerLink="/cart"></p-button>
+          <p-menu #menu [model]="currUser.isLogged? options:loggedOutOptions" [popup]="true" />
+          <p-button (click)="menu.toggle($event)" icon="pi pi-user"/>
+        </div>
+      </ng-template>
+    </p-menubar>
+    
+  </div>
 </header>
 
 <main>

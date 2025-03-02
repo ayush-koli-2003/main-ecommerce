@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate{
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): MaybeAsync<GuardResult> {
     if(this.user.isLogged === false){
-      this.router.navigate(['/user/register'])
+      this.router.navigate(['/user/login'])
     }
 
     if(state.url === '/newProduct'){
@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate{
         return true;
       }
       else{
-        this.router.navigate(['/user/register'],{state:{redirectAfterAuth:'/newProduct'}})
+        this.router.navigate(['/user/login'],{state:{redirectAfterAuth:'/newProduct'}})
       }
     }
     

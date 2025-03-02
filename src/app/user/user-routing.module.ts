@@ -4,7 +4,7 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 
 const routes: Routes = [
-  {path:'',pathMatch:'full',redirectTo:'register'},
+  {path:'',pathMatch:'full',redirectTo:'login'},
   {path:'register',component:UserRegisterComponent},
   {path:'login',component:UserLoginComponent}
 ];

@@ -14,7 +14,7 @@ export class CartListComponent implements OnInit {
   total:number=0;
 
   calculateTotal(){
-    this.total = this.cartList.reduce((val,acc)=>val+acc.price,0);
+    this.total = this.cartList.reduce((val,acc)=>val+(acc.price*(acc.quantity as number)),0);
     console.log(this.total);
     
   }
