@@ -1,0 +1,31 @@
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="form-container">
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
+      <hr>
+  
+      <ng-container *ngFor="let field of formGroup.controls | keyvalue">
+        <label for="{{ field.key }}"><b>{{ field.key | titlecase }}</b></label>
+        <div class="error" *ngIf="formGroup.controls[field.key]?.errors?.['required'] && formGroup.controls[field.key]?.pristine">
+            {{ field.key | titlecase }} is required
+        </div>
+        <div class="error" *ngIf="formGroup.controls[field.key].errors?.['pattern'] && formGroup.controls[field.key].dirty">
+          Invalid input
+        </div>
+        <input [type]="field.key === 'psw' ? 'password' : 'text'"
+          [placeholder]="'Enter ' + (field.key | titlecase)"
+          [formControlName]="field.key">
+      </ng-container>
+  
+      <hr>
+      <button type="submit" [disabled]="formGroup.invalid">{{ submitButtonText }}</button>
+    </div>
+
+    <div class="container signin">
+        <p>{{ redirectText }} <a [routerLink]="redirectLink">{{ redirectLinkText }}</a>.</p>
+      </div>
+</form>
+  
+    
+  

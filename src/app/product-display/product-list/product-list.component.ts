@@ -83,7 +83,7 @@ export class ProductListComponent implements OnInit {
             (productlist)=> {this.productList=productlist;}
           )
           if(this.searchQuery.length>0){
-            this.productList= this.productList.filter(x=> x.name.toLowerCase().includes(this.searchQuery))
+            this.productList= this.productList.filter(x=> x.name.toLowerCase().includes(this.searchQuery) || x.category.toLocaleLowerCase().includes(this.searchQuery))
           }
         }
       }

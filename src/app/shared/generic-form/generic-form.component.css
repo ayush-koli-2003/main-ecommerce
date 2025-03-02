@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  .container {
+    padding: 16px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+  }
+  
+  h1 {
+    color: #e0e0e0;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    color: #e0e0e0;
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #e0e0e0; 
+    border-radius: 4px;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #444;
+    outline: none;
+    border: 1px solid #00bcd4;
+  }
+  
+  hr {
+    border: 1px solid #444;
+    margin-bottom: 25px;
+  }
+  
+  .registerbtn {
+    background-color: #6200ea;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 4px;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+    background-color: #3700b3;
+  }
+  
+  a {
+    color: #1e90ff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .signin {
+    background-color: #333;
+    text-align: center;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  div {
+    color: #ff5555;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .signin p {
+    color: #e0e0e0; 
+  }
+  
+  #add-product {
+    display: none;
+  }

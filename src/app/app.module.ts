@@ -17,6 +17,7 @@ import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { provideHttpClient } from '@angular/common/http';
 import { Select } from 'primeng/select';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { Select } from 'primeng/select';
     FormsModule,
     MenuModule,
     ButtonModule,
-    Select
+    Select,
   ],
   providers: [provideAnimationsAsync(),
     providePrimeNG({

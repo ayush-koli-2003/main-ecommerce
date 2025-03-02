@@ -23,7 +23,7 @@ export class ProductHandlerService {
   subProductNameList = new BehaviorSubject(this.productNameList)
   obsProducNameList$ = this.subProductNameList.asObservable();
   constructor(private http:HttpClient) { 
-    this.productList=[{id:1,image:"https://th.bing.com/th/id/OIP.vutZp9AOZ3ena4Bn3d0_PQHaIg?rs=1&pid=ImgDetMain",name:"headphone",category:"electronics",price:1000,rating:4.3},{id:2,image:"https://th.bing.com/th/id/OIP.A5aNdTGib5znukF3O8Zz7gHaE8?rs=1&pid=ImgDetMain",name:"drone",category:"toys",price:3000,rating:4},{id:3,image:"https://th.bing.com/th/id/OIP.s1Cqcdi4054s4Db0AeFsSwHaLG?rs=1&pid=ImgDetMain",name:"Dishes",category:"grocery",price:100,rating:3.5},{id:4,image:"https://th.bing.com/th/id/OIP.IntLCKTZTt0uhLCb4AmsFwHaHQ?rs=1&pid=ImgDetMain",name:"Milk",category:"daily-essentials",price:10,rating:4.1},{id:5,image:"https://th.bing.com/th/id/OIP.d7K2KFlJXJP_5KtfVGthJQHaE8?rs=1&pid=ImgDetMain",name:"Choclate",category:"sweets",price:20,rating:4.9},{id:6,image:"https://www.shutterstock.com/image-photo/top-view-mechanical-keyboard-minimal-260nw-2194181879.jpg",name:"Mechanical keyboard",category:"electronic",price:150,rating:4.3},{id:7,image:"https://th.bing.com/th/id/OIP.g_hpjHu-jUnbjcCdFf6ZPwHaEK?rs=1&pid=ImgDetMain",name:"Acer curved monitor",category:"electronic",price:600,rating:3.6}];
+    this.productList=[{id:1,image:"https://th.bing.com/th/id/OIP.vutZp9AOZ3ena4Bn3d0_PQHaIg?rs=1&pid=ImgDetMain",name:"headphone",category:"electronic",price:1000,rating:4.3},{id:2,image:"https://th.bing.com/th/id/OIP.A5aNdTGib5znukF3O8Zz7gHaE8?rs=1&pid=ImgDetMain",name:"drone",category:"toys",price:3000,rating:4},{id:3,image:"https://th.bing.com/th/id/OIP.s1Cqcdi4054s4Db0AeFsSwHaLG?rs=1&pid=ImgDetMain",name:"Dishes",category:"grocery",price:100,rating:3.5},{id:4,image:"https://th.bing.com/th/id/OIP.IntLCKTZTt0uhLCb4AmsFwHaHQ?rs=1&pid=ImgDetMain",name:"Milk",category:"daily-essentials",price:10,rating:4.1},{id:5,image:"https://th.bing.com/th/id/OIP.d7K2KFlJXJP_5KtfVGthJQHaE8?rs=1&pid=ImgDetMain",name:"Choclate",category:"sweets",price:20,rating:4.9},{id:6,image:"https://www.shutterstock.com/image-photo/top-view-mechanical-keyboard-minimal-260nw-2194181879.jpg",name:"Mechanical keyboard",category:"electronic",price:150,rating:4.3},{id:7,image:"https://th.bing.com/th/id/OIP.g_hpjHu-jUnbjcCdFf6ZPwHaEK?rs=1&pid=ImgDetMain",name:"Acer curved monitor",category:"electronic",price:600,rating:3.6}];
     this.cartList = new Array();
     this.subjectCart.next(this.cartList)
     this.subject.next(this.productList)
@@ -33,7 +33,7 @@ export class ProductHandlerService {
 
   updateNames(){
     this.productNameList = this.productList.map((x)=> {
-      return x.name.toLowerCase()
+      return x.name.toLowerCase(),x.category.toLocaleLowerCase();
     });
     this.subProductNameList.next(this.productNameList);
   }
